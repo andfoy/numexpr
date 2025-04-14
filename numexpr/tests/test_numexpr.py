@@ -1327,7 +1327,7 @@ def _worker(qout=None):
 
 # Case test for subprocesses (via multiprocessing module)
 class test_subprocess(TestCase):
-    @pytest.mark.thread_unsafe
+    @pytest.mark.thread_unsafe(reason='prevent thread oversubscription')
     def test_multiprocess(self):
         try:
             import multiprocessing as mp
